@@ -72,6 +72,33 @@
 
                 <ul class="menu-inner py-1">
                     <!-- Dashboard -->
+                    <li class="menu-item active">
+                        <a href="{{ route('admin') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <div data-i18n="Analytics">Dashboard</div>
+                        </a>
+                    </li>  
+                    
+                    <li class="menu-item">
+                        <a href="{{ route('user.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-user-circle"></i>
+                            <div data-i18n="Analytics">User</div>
+                        </a>
+                    </li>  
+
+                    <li class="menu-item">
+                        <a href="category.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-grid-alt"></i>
+                            <div data-i18n="Analytics">Category</div>
+                        </a>
+                    </li>  
+
+                    <li class="menu-item">
+                        <a href="product.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-cart-alt"></i>
+                            <div data-i18n="Analytics">Product</div>
+                        </a>
+                    </li>  
 
                 </ul>
                 
@@ -138,6 +165,7 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
@@ -156,34 +184,7 @@
                     <!-- Content -->
 
                     <div class="container-xxl flex-grow-1 container-p-y">
-                         
-                    <div class="col-md-6 col-lg-4 mb-6 mx-auto">
-                            <div class="card h-50">
-                                <img class="card-img" src="{{ asset('back-end/assets/img/avatars/user.jpg')}}" alt="" />
-                                <div class="card-body">
-                                    <h3 class="card-title">My Profile</h3>
-                                    <p class="card-text">
-                                        Name : {{ Auth::user()->name }}
-                                    </p>
-
-                                    <p class="card-text">
-                                        Address : {{ Auth::user()->address }}
-                                    </p>
-
-                                    <p class="card-text">
-                                        Email : {{ Auth::user()->email }}
-                                    </p>
-
-                                    <p class="card-text">
-                                        Phone : {{ Auth::user()->phone }}
-                                    </p>
-
-                                    <a href="{{ route('home') }}" class="btn btn-outline-success">Home</a>
-                                    <a href="{{ route('admin') }}" class="btn btn-outline-primary">Product Management</a>
-                                </div>
-                            </div>
-                        </div>
-
+                         @yield('content')  
                      </div>
                      
                     </div>
